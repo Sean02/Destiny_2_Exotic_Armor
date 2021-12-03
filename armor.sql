@@ -5,7 +5,7 @@ CREATE TABLE User (
     id VARCHAR(255) PRIMARY KEY,
     region VARCHAR(255) NOT NULL,
     dlcOwned INTEGER NOT NULL,
-    acctStatus VARCHAR(255) NOT NULL
+    status VARCHAR(255) NOT NULL
 );
 
 DROP TABLE IF EXISTS Bungie;
@@ -17,8 +17,8 @@ CREATE TABLE Bungie (
 
 DROP TABLE IF EXISTS GameActivities;
 CREATE TABLE GameActivities (
-    activityName VARCHAR(255) PRIMARY KEY,
-    activityType VARCHAR(255) NOT NULL,
+    name VARCHAR(255) PRIMARY KEY,
+    type VARCHAR(255) NOT NULL,
     dlc VARCHAR(255) NOT NULL,
     season VARCHAR(255) NOT NULL
 );
@@ -28,7 +28,7 @@ CREATE TABLE DLC (
     season VARCHAR(255) PRIMARY KEY,
     seasonpass BOOLEAN NOT NULL,
     subclass BOOLEAN NOT NULL,
-    orderReleased INTEGER NOT NULL,
+    order_r INTEGER NOT NULL,
     campaign VARCHAR(255) NOT NULL
 );
 
@@ -66,14 +66,22 @@ INSERT INTO GameActivities VALUES('Splicer Lost Sectors', 'Lost Sector', 'Beyond
 INSERT INTO GameActivities VALUES('Lost Lost Sectors', 'Lost Sector', 'Beyond Light', 'Season of the Lost');
 INSERT INTO GameActivities VALUES('Hunt Lost Sectors', 'Lost Sector', 'Beyond Light', 'Season of the Hunt');
 INSERT INTO GameActivities VALUES('Fragment', 'PVP Map', 'Shadowkeep', 'Season of the Undying');
+INSERT INTO GameActivities VALUES('Forsaken Campaign', 'Story', 'Forsaken', 'Season of the Outlaw')
 
-INSERT INTO DLC VALUES ('Season of the Outlaw', 'False', 'True', '4', 'Forsaken');	 
+INSERT INTO DLC VALUES ('Season of the Outlaw', 'False', 'True', '4', 'Forsaken');
+INSERT INTO DLC VALUES ('Season of the Forge', 'False', 'False', '4', 'Forsaken');	 
+INSERT INTO DLC VALUES ('Season of the Drifter', 'False', 'False', '4', 'Forsaken');
+INSERT INTO DLC VALUES ('Season of Opulance', 'False', 'False', '4', 'Forsaken');
 INSERT INTO DLC VALUES ('Season of the Hunt', 'True', 'True', '6', 'Beyond Light');
-INSERT INTO DLC VALUES ('Season of the Splicer', 'True', 'True', '6', 'Beyond Light');
-INSERT INTO DLC VALUES ('Season of the Lost', 'True', 'True', '6', 'Beyond Light');
+INSERT INTO DLC VALUES ('Season of the Chosen', 'True', 'False', '6', 'Beyond Light');
+INSERT INTO DLC VALUES ('Season of the Splicer', 'True', 'False', '6', 'Beyond Light');
+INSERT INTO DLC VALUES ('Season of the Lost', 'True', 'False', '6', 'Beyond Light');
 INSERT INTO DLC VALUES ('Season of the Red War', 'False', 'True', '1', 'Base Game');
 INSERT INTO DLC VALUES ('Season of the Curse of Osiris', 'False', 'False', '2', 'Curse of Osiris');
-INSERT INTO DLC VALUES ('Season of the Undying', 'True', 'True', '5', 'Shadowkeep');
+INSERT INTO DLC VALUES ('Season of the Undying', 'True', 'False', '5', 'Shadowkeep');
+INSERT INTO DLC VALUES ('Season of Dawn', 'True', 'False', '5', 'Shadowkeep');
+INSERT INTO DLC VALUES ('Season of the Worthy', 'True', 'False', '5', 'Shadowkeep');
+INSERT INTO DLC VALUES ('Season of Arrivals', 'True', 'False', '5', 'Shadowkeep');
 INSERT INTO DLC VALUES ('Season of the Warmind', 'False', 'False', '3', 'Warmind');
 
 INSERT INTO Character VALUES ('Exo1', 'Warlock', 'Void', 'Sean#1111');
@@ -114,7 +122,7 @@ WHERE Armor.slot = 'Legs'
 .headers on
 SELECT User.id
 FROM User
-WHERE User.acctStatus = 'Banned'
+WHERE User.status = 'Banned'
 ;
 .print ''
 
@@ -136,20 +144,20 @@ SELECT DISTINCT Armor.name, DLC.campaign
 FROM Armor, DLC
 WHERE Armor.season = DLC.season
 GROUP BY Armor.name
-ORDER BY DLC.orderReleased
+ORDER BY DLC.order_r
 ;
 .print ''
 
 --6
 .print '6--'
 .headers on 
-SELECT Armor.name, GameActivities.activityName
+SELECT Armor.name, GameActivities.name
 FROM Armor, GameActivities, DLC
 WHERE Armor.season = GameActivities.season
 and GameActivities.DLC = DLC.campaign
-and GameActivities.activityType = 'Lost Sector'
+and GameActivities.type = 'Lost Sector'
 GROUP BY Armor.name
-ORDER BY DLC.orderReleased
+ORDER BY DLC.order_r
 ;
 .print ''
 
@@ -158,7 +166,7 @@ ORDER BY DLC.orderReleased
 .headers on
 SELECT DISTINCT User.id, DLC.campaign 
 FROM User, DLC
-WHERE User.dlcOwned = DLC.orderReleased
+WHERE User.dlcOwned = DLC.order_r
 ;
 .print ''
 
@@ -197,7 +205,7 @@ SELECT DISTINCT Character.id, Armor.name
 FROM Character, Armor, User, DLC
 WHERE Armor.class = Character.class
 and User.id = Character.userID
-and User.dlcOwned >= DLC.orderReleased
+and User.dlcOwned >= DLC.order_r
 and Armor.season = DLC.season
 ;
 .print ''
@@ -205,7 +213,7 @@ and Armor.season = DLC.season
 --18
 .print '18--'
 .headers on
-SELECT Bungie.id, GameActivities.activityName
+SELECT Bungie.id, GameActivities.name
 FROM Bungie, DLC, GameActivities
 WHERE DLC.campaign = Bungie.season
 and DLC.campaign = GameActivities.dlc
@@ -218,7 +226,7 @@ and DLC.season = 'Season of the Lost'
 .headers on
 SELECT DISTINCT User.id, DLC.campaign
 FROM User, DLC
-WHERE User.dlcOwned = DLC.orderReleased
+WHERE User.dlcOwned = DLC.order_r
 ;
 .print ''
 
@@ -261,7 +269,7 @@ WHERE Armor.name = 'Omnioculus'
 .print '14--'
 .headers on
 UPDATE User
-SET acctStatus = 'Banned'
+SET status = 'Banned'
 WHERE User.id = 'Player#0001'
 ;
 .print ''
@@ -273,7 +281,7 @@ DELETE FROM Character
 WHERE userID in 
     (SELECT User.id
     FROM User
-    WHERE User.acctStatus = 'Banned')
+    WHERE User.status = 'Banned')
 ;
 .print ''
 
