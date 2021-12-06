@@ -26,11 +26,11 @@
                 </tr>
 
                 <tr>
-                    {% for users in Users %}
-                    <td>{{users.id}}</td>
-                    <td>{{users.region}}</td>
-                    <td>{{users.dlcOwned}}</td>
-                    <td>{{users.status}}</td>
+                    {% for row in Users %}
+                    <td>{{row["id"]}}</td>
+                    <td>{{row["region"]}}</td>
+                    <td>{{row["dlcOwned"]}}</td>
+                    <td>{{row["status"]}}</td>
                     {% endfor %}
                 </tr>
             </table>
@@ -118,13 +118,13 @@
 
                 <tr>
                     <!-- might need to join userID, class, subclass here with an if -->
-                    {% for armor in Armor %}
-                    <td>{{armor.name}}</td>
-                    <td>{{armor.class}}</td>
-                    <td>{{armor.subclass}}</td>
-                    <td>{{armor.season}}</td>
-                    <td>{{armor.ornament}}</td>
-                    <td>{{armor.slot}}</td>
+                    {% for row in Armors %}
+                    <td>{{row["name"]}}</td>
+                    <td>{{row["class"]}}</td>
+                    <td>{{row["subclass"]}}</td>
+                    <td>{{row["season"]}}</td>
+                    <td>{{row["ornament"]}}</td>
+                    <td>{{row["slot"]}}</td>
                     {% endfor %}
                 </tr>
             </table>
