@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='decor.css') }}">
     <title>Front Page</title>
 </head>
 
 <body>
-    <h1>Destniy 2 Exotic Armor Database</h1>
+    <h1>Destiny 2 Exotic Armor Database</h1>
     <span>Welcome!</span>
 
     <div class="AllTabs">
-        <input type="radio" id="Users" name="UserTabs" checked="checked">
+        <input type="radio" id="Users" name="Tabs" checked="checked">
         <label for="Users">Users</label>
         <div class="tab">
             <table>
@@ -35,32 +36,121 @@
             </table>
         </div>
 
-        <input type="radio" id="Devs" name="DevTabs">
-        <label for="Devs">Devs</label>
+        <input type="radio" id="Bungie" name="Tabs">
+        <label for="Bungie">Bungie</label>
         <div class="tab">
             <table>
                 <tr>
-                    <th>Course Name</th>
-                    <th>Teacher</th>
-                    <th>Time</th>
-                    <th>Students Enrolled</th>
-                    <th>Add Class</th>
+                    <th>ID</th>
+                    <th>Vendor</th>
+                    <th>Season</th>
                 </tr>
-                {% for Classes in classes %}
-                <tr>
-                    <td>{{Classes.coursename}}</td>
-                    {% for Teacher in teach %}
-                    <td>{{Teacher.name}}</td>
-                    {% endfor %}
-                    <td>{{Classes.Time}}</td>
-                    <td>{{Classes.numberofenrolled}}/{{Classes.Capacity}}</td>
-                    <td><button id="join" onclick="toEnroll()">Join</button></td>
-                    {% endfor %}
 
+                <tr>
+                    {% for dev in Bungie %}
+                    <td>{{dev.id}}</td>
+                    <td>{{dev.vendor}}</td>
+                    <td>{{dev.season}}</td>
+                    {% endfor %}
                 </tr>
             </table>
         </div>
 
+        <input type="radio" id="GameActivities" name="Tabs">
+        <label for="GameActivities">GameActivities</label>
+        <div class="tab">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>DLC</th>
+                    <th>Season</th>
+                </tr>
+
+                <tr>
+                    {% for ga in GameActivities %}
+                    <td>{{ga.name}}</td>
+                    <td>{{users.type}}</td>
+                    <td>{{users.dls}}</td>
+                    <td>{{users.season}}</td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+
+        <input type="radio" id="DLC" name="Tabs">
+        <label for="DLC">DLC</label>
+        <div class="tab">
+            <table>
+                <tr>
+                    <th>Season</th>
+                    <th>Seasonpass</th>
+                    <th>Subclass</th>
+                    <th>Order_r</th>
+                    <th>Campaign</th>
+                </tr>
+
+                <tr>
+                    <!-- might need to join a  -->
+                    {% for dlc in DLC %}
+                    <td>{{dlc.season}}</td>
+                    <td>{{dlc.seasonpass}}</td>
+                    <td>{{dlc.subclass}}</td>
+                    <td>{{dlc.order_r}}</td>
+                    <td>{{dlc.campaign}}</td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+
+        <input type="radio" id="Armor" name="Tabs">
+        <label for="Armor">Armor</label>
+        <div class="tab">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Subclass</th>
+                    <th>Season</th>
+                    <th>Ornament</th>
+                    <th>Slot</th>
+                </tr>
+
+                <tr>
+                    <!-- might need to join userID, class, subclass here with an if -->
+                    {% for armor in Armor %}
+                    <td>{{armor.name}}</td>
+                    <td>{{armor.class}}</td>
+                    <td>{{armor.subclass}}</td>
+                    <td>{{armor.season}}</td>
+                    <td>{{armor.ornament}}</td>
+                    <td>{{armor.slot}}</td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+
+        <input type="radio" id="Character" name="Tabs">
+        <label for="Character">Character</label>
+        <div class="tab">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Class</th>
+                    <th>Subclass</th>
+                    <th>UserID</th>
+                </tr>
+
+                <tr>
+                    {% for char in Character %}
+                    <td>{{char.id}}</td>
+                    <td>{{char.class}}</td>
+                    <td>{{char.subclass}}</td>
+                    <td>{{char.userID}}</td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 
