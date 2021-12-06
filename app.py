@@ -24,7 +24,6 @@ def insert_armor(armor):
         conn.close()
     return new_armor
     
-
 def get_armors():
     armors = []
     try:
@@ -102,7 +101,6 @@ def delete_armors(armor_id):
 
 
 
-
 #dev func
 def insert_dev(dev):
     new_dev = {}
@@ -161,8 +159,6 @@ def get_dev_by_id(dev_id):
 
     return dev
 
-
-
 def update_dev(dev):
     updated_Dev = {}
     try:
@@ -182,7 +178,6 @@ def update_dev(dev):
 
     return updated_Dev
 
-
 def delete_dev(dev_id):
     msg = {}
     try:
@@ -196,7 +191,6 @@ def delete_dev(dev_id):
     finally:
         conn.close()
     return msg
-
 
 
 
@@ -275,7 +269,6 @@ def update_chars(char):
         conn.close()
     return updated_char
 
-
 def delete_chars(char_id):
     msg = {}
     try:
@@ -289,7 +282,6 @@ def delete_chars(char_id):
     finally:
         conn.close()
     return msg
-
 
 
 
@@ -583,7 +575,7 @@ def delete_DLC(DLC_id):
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-#armor
+#armor Flask
 @app.route('/api/armors', methods=['GET'])
 def api_get_armors():
     return jsonify(get_armors())
@@ -607,7 +599,8 @@ def api_delete_armor(armor_id):
     return jsonify(delete_armors(armor_id))
 
 
-#dev
+
+#dev Flask
 @app.route('/api/devs', methods=['GET'])
 def api_get_devs():
     return jsonify(get_devs())
@@ -629,8 +622,6 @@ def api_update_dev():
 @app.route('/api/devs/delete/<dev_id>',  methods = ['DELETE'])
 def api_delete_dev(dev_id):
     return jsonify(delete_dev(dev_id))
-
-
 
 
 
