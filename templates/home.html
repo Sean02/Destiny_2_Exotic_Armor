@@ -1,12 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Front Page</title>
 </head>
+
 <body>
-    
+    <h1>Destniy 2 Exotic Armor Database</h1>
+    <span>Welcome!</span>
+
+    <div class="AllTabs">
+        <input type="radio" id="Users" name="UserTabs" checked="checked">
+        <label for="Users">Users</label>
+        <div class="tab">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Region</th>
+                    <th>DLCOwned</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    {% for users in Users %}
+                    <td>{{users.id}}</td>
+                    <td>{{users.region}}</td>
+                    <td>{{users.dlcOwned}}</td>
+                    <td>{{users.status}}</td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+
+        <input type="radio" id="Devs" name="DevTabs">
+        <label for="Devs">Devs</label>
+        <div class="tab">
+            <table>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Teacher</th>
+                    <th>Time</th>
+                    <th>Students Enrolled</th>
+                    <th>Add Class</th>
+                </tr>
+                {% for Classes in classes %}
+                <tr>
+                    <td>{{Classes.coursename}}</td>
+                    {% for Teacher in teach %}
+                    <td>{{Teacher.name}}</td>
+                    {% endfor %}
+                    <td>{{Classes.Time}}</td>
+                    <td>{{Classes.numberofenrolled}}/{{Classes.Capacity}}</td>
+                    <td><button id="join" onclick="toEnroll()">Join</button></td>
+                    {% endfor %}
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
 </body>
+
 </html>
