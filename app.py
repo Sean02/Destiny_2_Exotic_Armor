@@ -576,10 +576,22 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 #home
-@app.route('/')
+@app.route('/', methods = ['GET', 'POST'])
 def home():
-    return render_template('home.html')
-    
+    conn = connect_db()
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+
+    cur.execute("SELECT * FROM User")
+    Users = cur.fetchall()
+
+    cur.execute("SELECT * FROM Armor")
+    Armors = cur.fetchall()
+
+    return render_template('home.html', Users = Users, Armors = Armors)
+
+
+
 #armor Flask
 @app.route('/api/armors', methods=['GET'])
 def api_get_armors():
