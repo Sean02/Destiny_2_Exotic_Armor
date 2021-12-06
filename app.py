@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, request, jsonify 
+from flask import Flask, request, jsonify, render_template 
 from flask_cors import CORS 
 
 def connect_db():
@@ -575,6 +575,11 @@ def delete_DLC(DLC_id):
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+#home
+@app.route('/')
+def home():
+    return render_template('home.html')
+    
 #armor Flask
 @app.route('/api/armors', methods=['GET'])
 def api_get_armors():
