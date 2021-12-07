@@ -16,12 +16,14 @@
         <label for="Select">Select</label>
         <div class="tab">
             <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Region</th>
-                    <th>DLCOwned</th>
-                    <th>Status</th>
-                </tr>
+                <form>
+                    <tr>
+                        <th>SELECT <td colspan="5"><input type="text" name="s_val" id="s_val"></td></th>
+                        <th>FROM  <td colspan="5"><input type="text" name="s_table" id="s_table"></td></th>
+                        <th>WHERE <td colspan="5"><input type="text" name="s_query" id="s_query"></td></th>
+
+                    </tr>
+                </form>
             </table>
         </div>
 
@@ -30,9 +32,9 @@
         <div class="tab">
             <table>
                 <tr>
-                    <th>ID</th>
-                    <th>Vendor</th>
-                    <th>Season</th>
+                    <th>UPDATE <td colspan="5"><input type="text" name="u_table" id="u_table"></th>
+                    <th>SET <td colspan="5"><input type="text" name="u_val" id="u_val"></th>
+                    <th>WHERE <td colspan="5"><input type="text" name="u_query" id="u_query"></th>
                 </tr>
             </table>
         </div>
@@ -42,10 +44,8 @@
         <div class="tab">
             <table>
                 <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>DLC</th>
-                    <th>Season</th>
+                    <th>INSERT INTO <td colspan="5"><input type="text" name="i_table" id="i_table"></th>
+                    <th>VALUES <td colspan="5"><input type="text" name="i_val" id="i_val"></th>
                 </tr>
             </table>
         </div>
@@ -55,11 +55,8 @@
         <div class="tab">
             <table>
                 <tr>
-                    <th>Season</th>
-                    <th>Seasonpass</th>
-                    <th>Subclass</th>
-                    <th>Order_r</th>
-                    <th>Campaign</th>
+                    <th>DELETE FROM <td colspan="5"><input type="text" name="d_table" id="d_table"></th>
+                    <th>WHERE <td colspan="5"><input type="text" name="d_query" id="d_query"></th>
                 </tr>
             </table>
         </div>
