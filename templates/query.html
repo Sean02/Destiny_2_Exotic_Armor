@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='edit.css') }}">
+    <title>Query</title>
+</head>
+
+<body>
+    <h1>Choose the SQL function:</h1>
+    <div class="SUID">
+        <input type="radio" id="Select" name="SUIDTabs" checked="checked">
+        <label for="Select">Select</label>
+        <div class="tab">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Region</th>
+                    <th>DLCOwned</th>
+                    <th>Status</th>
+                </tr>
+            </table>
+        </div>
+
+        <input type="radio" id="Update" name="SUIDTabs">
+        <label for="Update">Update</label>
+        <div class="tab">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Vendor</th>
+                    <th>Season</th>
+                </tr>
+            </table>
+        </div>
+
+        <input type="radio" id="Insert" name="SUIDTabs">
+        <label for="Insert">Insert</label>
+        <div class="tab">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>DLC</th>
+                    <th>Season</th>
+                </tr>
+            </table>
+        </div>
+
+        <input type="radio" id="Delete" name="SUIDTabs">
+        <label for="Delete">Delete</label>
+        <div class="tab">
+            <table>
+                <tr>
+                    <th>Season</th>
+                    <th>Seasonpass</th>
+                    <th>Subclass</th>
+                    <th>Order_r</th>
+                    <th>Campaign</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
