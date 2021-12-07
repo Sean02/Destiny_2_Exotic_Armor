@@ -40,7 +40,6 @@ th, td {
 
 
 /* checks for element label that is chosen */
-
 .AllTabs input[type="radio"]:checked+label+.tab {
     display: block;
 }
