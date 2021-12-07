@@ -602,7 +602,10 @@ def home():
 
     return render_template('home.html', Users = Users, Armors = Armors, Devs = Devs, Chars = Chars, GAs = GAs, DLCs = DLCs)
 
-
+#query section
+@app.route('/query', methods = ['GET', 'POST', 'PUT', 'DELETE'])
+def start_query():
+    return render_template('query.html')
 
 #armor Flask
 @app.route('/api/armors', methods=['GET'])
