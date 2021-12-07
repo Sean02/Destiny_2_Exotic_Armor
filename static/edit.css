@@ -42,7 +42,6 @@ td {
 
 
 /* checks for element label that is chosen */
-
 .SUID input[type="radio"]:checked+label+.tab {
     display: block;
 }
