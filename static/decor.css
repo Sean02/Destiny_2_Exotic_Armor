@@ -2,6 +2,13 @@ body {
     background: #92DCE5;
     font-family: 'Roboto', sans-serif;
 }
+table {
+    border: 1px solid black;
+}
+
+th, td {
+    border: 1px solid black;
+}
 
 .AllTabs {
     display: flex;
