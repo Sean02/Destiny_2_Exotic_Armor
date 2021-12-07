@@ -1,3 +1,43 @@
 body {
-    background-color: aqua;
+    background: #92DCE5;
+    font-family: 'Roboto', sans-serif;
+}
+
+.AllTabs {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 25px;
+}
+
+.AllTabs input[type="radio"] {
+    display: none;
+}
+
+.AllTabs label {
+    padding: 25px;
+    background: gray;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.AllTabs .tab {
+    width: 100%;
+    padding: 25px;
+    background: white;
+    order: 1;
+    display: none;
+}
+
+
+/* checks for element label that is chosen */
+
+.AllTabs input[type="radio"]:checked+label+.tab {
+    display: block;
+}
+
+.AllTabs input[type="radio"]:checked+label {
+    background: white;
 }
