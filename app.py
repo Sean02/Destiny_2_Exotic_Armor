@@ -588,7 +588,19 @@ def home():
     cur.execute("SELECT * FROM Armor")
     Armors = cur.fetchall()
 
-    return render_template('home.html', Users = Users, Armors = Armors)
+    cur.execute("SELECT * FROM Bungie")
+    Devs = cur.fetchall()
+
+    cur.execute("SELECT * FROM Character")
+    Chars = cur.fetchall()
+
+    cur.execute("SELECT * FROM GameActivities")
+    GAs = cur.fetchall()
+
+    cur.execute("SELECT * FROM DLC")
+    DLCs = cur.fetchall()
+
+    return render_template('home.html', Users = Users, Armors = Armors, Devs = Devs, Chars = Chars, GAs = GAs, DLCs = DLCs)
 
 
 
