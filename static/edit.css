@@ -1,0 +1,52 @@
+body {
+    background: #92DCE5;
+    font-family: 'Roboto', sans-serif;
+}
+
+table {
+    border: 1px solid black;
+}
+
+th,
+td {
+    border: 1px solid black;
+}
+
+.SUID {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 25px;
+}
+
+.SUID input[type="radio"] {
+    display: none;
+}
+
+.SUID label {
+    padding: 25px;
+    background: gray;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.SUID .tab {
+    width: 100%;
+    padding: 25px;
+    background: white;
+    order: 1;
+    display: none;
+}
+
+
+/* checks for element label that is chosen */
+
+.SUID input[type="radio"]:checked+label+.tab {
+    display: block;
+}
+
+.SUID input[type="radio"]:checked+label {
+    background: white;
+}
