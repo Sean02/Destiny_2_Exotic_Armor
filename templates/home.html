@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 
 <body>
     <h1>Destiny 2 Exotic Armor Database</h1>
-    <span>Welcome!</span>
+    <h2>“I bring gifts of the Nine. Gifts you sorely need.” -Xur</h2>
 
     <div class="AllTabs">
         <input type="radio" id="Users" name="Tabs" checked="checked">
@@ -24,15 +24,14 @@
                     <th>DLCOwned</th>
                     <th>Status</th>
                 </tr>
-
+                {% for row in Users %}
                 <tr>
-                    {% for row in Users %}
                     <td>{{row["id"]}}</td>
                     <td>{{row["region"]}}</td>
                     <td>{{row["dlcOwned"]}}</td>
                     <td>{{row["status"]}}</td>
-                    {% endfor %}
                 </tr>
+                {% endfor %}
             </table>
         </div>
 
@@ -45,14 +44,13 @@
                     <th>Vendor</th>
                     <th>Season</th>
                 </tr>
-
+                {% for row in Devs %}
                 <tr>
-                    {% for dev in Bungie %}
-                    <td>{{dev.id}}</td>
-                    <td>{{dev.vendor}}</td>
-                    <td>{{dev.season}}</td>
-                    {% endfor %}
+                    <td>{{row["id"]}}</td>
+                    <td>{{row["vendor"]}}</td>
+                    <td>{{row["season"]}}</td>
                 </tr>
+                {% endfor %}
             </table>
         </div>
 
@@ -66,15 +64,14 @@
                     <th>DLC</th>
                     <th>Season</th>
                 </tr>
-
+                {% for row in GAs %}
                 <tr>
-                    {% for ga in GameActivities %}
-                    <td>{{ga.name}}</td>
-                    <td>{{users.type}}</td>
-                    <td>{{users.dls}}</td>
-                    <td>{{users.season}}</td>
-                    {% endfor %}
+                    <td>{{row["name"]}}</td>
+                    <td>{{row["type"]}}</td>
+                    <td>{{row["dlc"]}}</td>
+                    <td>{{row["season"]}}</td>
                 </tr>
+                {% endfor %}
             </table>
         </div>
 
@@ -89,17 +86,15 @@
                     <th>Order_r</th>
                     <th>Campaign</th>
                 </tr>
-
+                {% for row in DLCs %}
                 <tr>
-                    <!-- might need to join a  -->
-                    {% for dlc in DLC %}
-                    <td>{{dlc.season}}</td>
-                    <td>{{dlc.seasonpass}}</td>
-                    <td>{{dlc.subclass}}</td>
-                    <td>{{dlc.order_r}}</td>
-                    <td>{{dlc.campaign}}</td>
-                    {% endfor %}
+                    <td>{{row["season"]}}</td>
+                    <td>{{row["seasonpass"]}}</td>
+                    <td>{{row["subclass"]}}</td>
+                    <td>{{row["order_r"]}}</td>
+                    <td>{{row["campaign"]}}</td>
                 </tr>
+                {% endfor %}
             </table>
         </div>
 
@@ -115,18 +110,16 @@
                     <th>Ornament</th>
                     <th>Slot</th>
                 </tr>
-
+                {% for row in Armors %}
                 <tr>
-                    <!-- might need to join userID, class, subclass here with an if -->
-                    {% for row in Armors %}
                     <td>{{row["name"]}}</td>
                     <td>{{row["class"]}}</td>
                     <td>{{row["subclass"]}}</td>
                     <td>{{row["season"]}}</td>
                     <td>{{row["ornament"]}}</td>
                     <td>{{row["slot"]}}</td>
-                    {% endfor %}
                 </tr>
+                {% endfor %}
             </table>
         </div>
 
@@ -140,18 +133,21 @@
                     <th>Subclass</th>
                     <th>UserID</th>
                 </tr>
-
+                {% for row in Chars %}
                 <tr>
-                    {% for char in Character %}
-                    <td>{{char.id}}</td>
-                    <td>{{char.class}}</td>
-                    <td>{{char.subclass}}</td>
-                    <td>{{char.userID}}</td>
-                    {% endfor %}
+                    <td>{{row["id"]}}</td>
+                    <td>{{row["class"]}}</td>
+                    <td>{{row["subclass"]}}</td>
+                    <td>{{row["userID"]}}</td>
                 </tr>
+                {% endfor %}
             </table>
+
         </div>
     </div>
+
+    <br>
+    <button type="button">Manipulate Here!</button>
 </body>
 
 </html>
