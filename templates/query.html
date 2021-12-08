@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <form method = "post">
     <h1>Choose the SQL function:</h1>
     <div class="SUID">
         <input type="radio" id="Select" name="SUIDTabs" checked="checked">
@@ -22,7 +23,7 @@
                     <th>WHERE <td colspan="5"><input type="text" name="s_query" id="s_query"></td></th>
                 </tr>
             </table>
-            <button id="s_button" onclick="SELECT()">Commit</button>
+            <button id="s_button" >Commit</button>
         </div>
 
         <input type="radio" id="Update" name="SUIDTabs">
@@ -35,19 +36,24 @@
                     <th>WHERE <td colspan="5"><input type="text" name="u_query" id="u_query"></th>
                 </tr>
             </table>
-            <button id="u_button" onclick="UPDATE()">Commit</button>
+            <button id="u_button" >Commit</button>
         </div>
 
         <input type="radio" id="Insert" name="SUIDTabs">
         <label for="Insert">Insert</label>
         <div class="tab">
+
             <table>
                 <tr>
+                    
                     <th>INSERT INTO <td colspan="5"><input type="text" name="i_table" id="i_table"></th>
                     <th>VALUES <td colspan="5"><input type="text" name="i_val" id="i_val"></th>
                 </tr>
             </table>
-            <button id="i_button" onclick="INSERT()">Commit</button>
+            <input type = "submit" name="i_button" value = "Commit"/>
+
+
+            <a href="{{url_for('home')}}">Return</a><br>
         </div>
 
         <input type="radio" id="Delete" name="SUIDTabs">
@@ -59,9 +65,13 @@
                     <th>WHERE <td colspan="5"><input type="text" name="d_query" id="d_query"></th>
                 </tr>
             </table>
-            <button id="d_button" onclick="DELETE()">Commit</button>
+            <input type = "submit" name="d_button" value = "Commit"/>
+            
+
+            <a href="{{url_for('home')}}">Return</a><br>
         </div>
     </div>
+</form>
 </body>
 
 </html>
