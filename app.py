@@ -605,6 +605,24 @@ def home():
 #query section
 @app.route('/query', methods = ['GET', 'POST', 'PUT', 'DELETE'])
 def start_query():
+    if request.method == 'POST':
+        if(request.form['i_button'] == 'Commit'):
+            conn = connect_db()
+            cur = conn.cursor()
+            myT = request.form['i_table']
+            myV = request.form['i_val']
+            cur.execute("""INSERT INTO %s VALUES (%s)""", (myT, myV))
+            print ('successful commit')
+
+    if request.method == ['POST']:
+        if(request.form['d_button'] == 'Commit'):
+            conn = connect_db()
+            cur = conn.cursor()
+            myT = request.form['d_table']
+            myQ = request.form['d_query']
+            cur.execute("""DELETE FROM %s WHERE %s""", (myT, myQ))
+            conn.commit()
+            print ('successful commit')
     return render_template('query.html')
 
 #armor Flask
