@@ -23,7 +23,8 @@
                     <th>WHERE <td colspan="5"><input type="text" name="s_query" id="s_query"></td></th>
                 </tr>
             </table>
-            <button id="s_button" >Commit</button>
+            <input type = "submit" name="i_button" value = "Select"/>
+            <a href="{{url_for('home')}}">Return</a><br>
         </div>
 
         <input type="radio" id="Update" name="SUIDTabs">
@@ -36,7 +37,8 @@
                     <th>WHERE <td colspan="5"><input type="text" name="u_query" id="u_query"></th>
                 </tr>
             </table>
-            <button id="u_button" >Commit</button>
+            <input type = "submit" name="i_button" value = "Update"/>
+            <a href="{{url_for('home')}}">Return</a><br>
         </div>
 
         <input type="radio" id="Insert" name="SUIDTabs">
@@ -50,9 +52,7 @@
                     <th>VALUES <td colspan="5"><input type="text" name="i_val" id="i_val"></th>
                 </tr>
             </table>
-            <input type = "submit" name="i_button" value = "Commit"/>
-
-
+            <input type = "submit" name="i_button" value = "Insert"/>
             <a href="{{url_for('home')}}">Return</a><br>
         </div>
 
@@ -65,9 +65,7 @@
                     <th>WHERE <td colspan="5"><input type="text" name="d_query" id="d_query"></th>
                 </tr>
             </table>
-            <input type = "submit" name="d_button" value = "Commit"/>
-            
-
+            <input type = "submit" name="i_button" value = "Delete"/>
             <a href="{{url_for('home')}}">Return</a><br>
         </div>
     </div>
