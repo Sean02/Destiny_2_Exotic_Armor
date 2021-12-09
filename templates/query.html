@@ -12,64 +12,64 @@
 <body>
     <form method = "post">
     <h1>Choose the SQL function:</h1>
-    <div class="SUID">
-        <input type="radio" id="Select" name="SUIDTabs" checked="checked">
-        <label for="Select">Select</label>
-        <div class="tab">
-            <table>
-                <tr>
-                    <th>SELECT <td colspan="5"><input type="text" name="s_val" id="s_val"></td></th>
-                    <th>FROM <td colspan="5"><input type="text" name="s_table" id="s_table"></td></th>
-                    <th>WHERE <td colspan="5"><input type="text" name="s_query" id="s_query"></td></th>
-                </tr>
-            </table>
-            <input type = "submit" name="i_button" value = "Select"/>
-            <a href="{{url_for('home')}}">Return</a><br>
-        </div>
+        <div class="SUID">
+            <input type="radio" id="Select" name="SUIDTabs" checked="checked">
+            <label for="Select">Select</label>
+            <div class="tab">
+                <table>
+                    <tr>
+                        <th>SELECT <td colspan="5"><input type="text" name="s_val" id="s_val"></td></th>
+                        <th>FROM <td colspan="5"><input type="text" name="s_table" id="s_table"></td></th>
+                        <th>WHERE <td colspan="5"><input type="text" name="s_query" id="s_query"></td></th>
+                    </tr>
+                </table>
+                <input type = "submit" name="i_button" onclick = "pop()" value = "Select"/>
+                <script id="demo"> window.alert("HELLO") </script>
+                <a href="{{url_for('home')}}">Return</a><br>
+            </div>
 
-        <input type="radio" id="Update" name="SUIDTabs">
-        <label for="Update">Update</label>
-        <div class="tab">
-            <table>
-                <tr>
-                    <th>UPDATE <td colspan="5"><input type="text" name="u_table" id="u_table"></th>
-                    <th>SET <td colspan="5"><input type="text" name="u_val" id="u_val"></th>
-                    <th>WHERE <td colspan="5"><input type="text" name="u_query" id="u_query"></th>
-                </tr>
-            </table>
-            <input type = "submit" name="i_button" value = "Update"/>
-            <a href="{{url_for('home')}}">Return</a><br>
-        </div>
+            <input type="radio" id="Update" name="SUIDTabs">
+            <label for="Update">Update</label>
+            <div class="tab">
+                <table>
+                    <tr>
+                        <th>UPDATE <td colspan="5"><input type="text" name="u_table" id="u_table"></th>
+                        <th>SET <td colspan="5"><input type="text" name="u_val" id="u_val"></th>
+                        <th>WHERE <td colspan="5"><input type="text" name="u_query" id="u_query"></th>
+                    </tr>
+                </table>
+                <input type = "submit" name="i_button" value = "Update"/>
+                <a href="{{url_for('home')}}">Return</a><br>
+            </div>
 
-        <input type="radio" id="Insert" name="SUIDTabs">
-        <label for="Insert">Insert</label>
-        <div class="tab">
+            <input type="radio" id="Insert" name="SUIDTabs">
+            <label for="Insert">Insert</label>
+            <div class="tab">
+                <table>
+                    <tr>
 
-            <table>
-                <tr>
-                    
-                    <th>INSERT INTO <td colspan="5"><input type="text" name="i_table" id="i_table"></th>
-                    <th>VALUES <td colspan="5"><input type="text" name="i_val" id="i_val"></th>
-                </tr>
-            </table>
-            <input type = "submit" name="i_button" value = "Insert"/>
-            <a href="{{url_for('home')}}">Return</a><br>
-        </div>
+                        <th>INSERT INTO <td colspan="5"><input type="text" name="i_table" id="i_table"></th>
+                        <th>VALUES <td colspan="5"><input type="text" name="i_val" id="i_val"></th>
+                    </tr>
+                </table>
+                <input type = "submit" name="i_button" value = "Insert"/>
+                <a href="{{url_for('home')}}">Return</a><br>
+            </div>
 
-        <input type="radio" id="Delete" name="SUIDTabs">
-        <label for="Delete">Delete</label>
-        <div class="tab">
-            <table>
-                <tr>
-                    <th>DELETE FROM <td colspan="5"><input type="text" name="d_table" id="d_table"></th>
-                    <th>WHERE <td colspan="5"><input type="text" name="d_query" id="d_query"></th>
-                </tr>
-            </table>
-            <input type = "submit" name="i_button" value = "Delete"/>
-            <a href="{{url_for('home')}}">Return</a><br>
+            <input type="radio" id="Delete" name="SUIDTabs">
+            <label for="Delete">Delete</label>
+            <div class="tab">
+                <table>
+                    <tr>
+                        <th>DELETE FROM <td colspan="5"><input type="text" name="d_table" id="d_table"></th>
+                        <th>WHERE <td colspan="5"><input type="text" name="d_query" id="d_query"></th>
+                    </tr>
+                </table>
+                <input type = "submit" name="i_button" value = "Delete"/>
+                <a href="{{url_for('home')}}">Return</a><br>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
 </body>
 
 </html>
