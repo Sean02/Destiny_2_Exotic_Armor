@@ -1,10 +1,15 @@
 body {
-    background: #92DCE5;
+    background: DeepSkyBlue;
     font-family: 'Roboto', sans-serif;
 }
 
 table {
     border: 1px solid black;
+}
+
+h1  {
+    color: Snow;
+    text-align: center;
 }
 
 th,
@@ -26,7 +31,7 @@ td {
 
 .FUNC label {
     padding: 25px;
-    background: gray;
+    background: yellow;
     font-weight: bold;
     font-style: italic;
     text-decoration: underline;
@@ -35,7 +40,8 @@ td {
 .FUNC .tab {
     width: 100%;
     padding: 25px;
-    background: white;
+    background: Snow;
+    text-align: center;
     order: 1;
     display: none;
 }
@@ -47,5 +53,5 @@ td {
 }
 
 .FUNC input[type="radio"]:checked+label {
-    background: white;
+    background: Snow;
 }
