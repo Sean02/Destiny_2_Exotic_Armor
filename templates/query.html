@@ -23,9 +23,23 @@
                         <th>WHERE <td colspan="5"><input type="text" name="s_query" id="s_query"></td></th>
                     </tr>
                 </table>
-                <input type = "submit" name="i_button" onclick = "pop()" value = "Select"/>
-                <script id="demo"> window.alert("HELLO") </script>
+                <input type = "submit" name="i_button" value = "Select"/>
+                
                 <a href="{{url_for('home')}}">Return</a><br>
+                <table>
+                    {%for row in myOut%}
+                    <tr>
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td>{{row[5]}}</td>
+                    </tr>
+                    {%endfor%}
+                </table>
+                <!--<textarea disabled = "disabled">Output goes here</textarea>
+                -->   
             </div>
 
             <input type="radio" id="Update" name="SUIDTabs">
