@@ -1,6 +1,6 @@
 import sqlite3
-from flask import Flask, request, jsonify, render_template 
-from flask_cors import CORS 
+from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 
 def connect_db():
     conn = sqlite3.connect('data.sqlite')
@@ -80,6 +80,10 @@ def start_query():
 
     return render_template('query.html')
 
+#presets section
+@app.route('/preset')
+def preset():
+    return render_template('preset.html')
 
 if __name__ == "__main__":
     #app.debug = True
