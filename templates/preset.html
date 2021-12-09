@@ -34,7 +34,6 @@
                         <th>SELECT User.id, count(Character.id) FROM User, Character WHERE User.id = Character.userID GROUP BY User.id HAVING count(Character.id) > 1; </th>
                     </tr>
                 </table>
-                <script id="demo"> window.alert("HELLO") </script>
                 <a href="{{url_for('home')}}">Return</a><br>
             </div>
 
