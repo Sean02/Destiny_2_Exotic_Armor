@@ -2,6 +2,7 @@ import sqlite3
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 
+
 def connect_db():
     conn = sqlite3.connect('data.sqlite')
     return conn
@@ -48,6 +49,7 @@ def start_query():
             cur.execute("INSERT INTO {0} VALUES ({1})".format(myT, myV))
             conn.commit()
             #print ('successful commit')
+            return render_template('query.html')
 
         elif(request.form['i_button'] == 'Delete'):
             conn = connect_db()
@@ -57,6 +59,7 @@ def start_query():
             cur.execute('DELETE FROM {0} WHERE {1}'.format(myT, myQ))
             conn.commit()
             #print ('successful commit')
+            return render_template('query.html')
 
         elif(request.form['i_button'] == 'Select'):
             conn = connect_db()
@@ -65,8 +68,12 @@ def start_query():
             myT = request.form['s_table']
             myQ = request.form['s_query']
             cur.execute('SELECT {0} FROM {1} WHERE {2}'.format(myV, myT, myQ))
-            conn.commit()
+            myOut = cur.fetchall()
+            
+            #print (myV + " " + myT + " " + myQ)
+            #print (myOut)
             #print ('successful commit')
+            return render_template('query.html', myOut = myOut)
 
         elif(request.form['i_button'] == 'Update'):
             conn = connect_db()
@@ -77,8 +84,10 @@ def start_query():
             cur.execute('UPDATE {0} SET {1} WHERE {2}'.format(myT, myV, myQ))
             conn.commit()
             #print ('successful commit')
+            return render_template('query.html')
+    else:
+        return render_template('query.html')
 
-    return render_template('query.html')
 
 #presets section
 @app.route('/preset')
