@@ -24,7 +24,7 @@
                     </tr>
                 </table>
                 <input type = "submit" name="i_button" value = "Select"/>
-                
+                <br>
                 <a href="{{url_for('home')}}">Return</a><br>
                 <table>
                     {%for row in myOut%}
@@ -39,7 +39,7 @@
                     {%endfor%}
                 </table>
                 <!--<textarea disabled = "disabled">Output goes here</textarea>
-                -->   
+                -->
             </div>
 
             <input type="radio" id="Update" name="SUIDTabs">
@@ -53,6 +53,7 @@
                     </tr>
                 </table>
                 <input type = "submit" name="i_button" value = "Update"/>
+                <br>
                 <a href="{{url_for('home')}}">Return</a><br>
             </div>
 
@@ -67,6 +68,7 @@
                     </tr>
                 </table>
                 <input type = "submit" name="i_button" value = "Insert"/>
+                <br>
                 <a href="{{url_for('home')}}">Return</a><br>
             </div>
 
@@ -80,6 +82,7 @@
                     </tr>
                 </table>
                 <input type = "submit" name="i_button" value = "Delete"/>
+                <br>
                 <a href="{{url_for('home')}}">Return</a><br>
             </div>
         </div>
