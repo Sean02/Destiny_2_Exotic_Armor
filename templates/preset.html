@@ -34,6 +34,15 @@
                         <th>SELECT User.id, count(Character.id) FROM User, Character WHERE User.id = Character.userID GROUP BY User.id HAVING count(Character.id) > 1; </th>
                     </tr>
                 </table>
+                <br>
+                <table>
+                    {%for row in pOut%}
+                    <tr>
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                    </tr>
+                    {%endfor%}
+                </table>
                 <a href="{{url_for('home')}}">Return</a><br>
             </div>
 
@@ -75,11 +84,11 @@
                     </tr>
                     <tr>
                         <td><input type = "submit" name="pre" value = "i3"/></td>
-                        <th>INSERT INTO VALUES ('Eater of Worlds', 'Raid', 'Curse of Osiris', 'Season of the Curse of Osiris'); </th>
+                        <th>INSERT INTO GameActivities VALUES ('Eater of Worlds', 'Raid', 'Curse of Osiris', 'Season of the Curse of Osiris'); </th>
                     </tr>
                     <tr>
                         <td><input type = "submit" name="pre" value = "i4"/></td>
-                        <th>INSERT INTO Character VALUES ('Human2', 'Titan', 'Arc', 'Player#0001); </th>
+                        <th>INSERT INTO Character VALUES ('Human2', 'Titan', 'Arc', 'Player#0001'); </th>
                     </tr>
                 </table>
                 <a href="{{url_for('home')}}">Return</a><br>
