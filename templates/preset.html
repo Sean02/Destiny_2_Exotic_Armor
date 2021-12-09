@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='presets.css') }}">
+    <title>Presets</title>
+</head>
+
+<body>
+    <form method = "post">
+    <h1>Choose a premade SQL function:</h1>
+        <div class="FUNC">
+            <input type="radio" id="Select" name="FUNCTabs" checked="checked">
+            <label for="Select">Select</label>
+            <div class="tab">
+                <table>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "s1"/></td>
+                        <th>SELECT DISTINCT Character.id, Armor.name FROM Character, Armor, User, DLC WHERE Armor.class = Character.class and User.id = Character.userID and User.dlcOwned >= DLC.order_r and Armor.season = DLC.season; </th>
+                    </tr>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "s2"/></td>
+                        <th>SELECT Bungie.id, GameActivities.name FROM Bungie, DLC, GameActivities WHERE DLC.campaign = Bungie.season and DLC.campaign = GameActivities.dlc and DLC.season = 'Season of the Lost'; </th>
+                    </tr>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "s3"/></td>
+                        <th>SELECT Armor.name, Armor.slot FROM Armor WHERE Armor.subclass = 'Void'; </th>
+                    </tr>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "s4"/></td>
+                        <th>SELECT User.id, count(Character.id) FROM User, Character WHERE User.id = Character.userID GROUP BY User.id HAVING count(Character.id) > 1; </th>
+                    </tr>
+                </table>
+                <a href="{{url_for('home')}}">Return</a><br>
+            </div>
+
+            <input type="radio" id="Update" name="FUNCTabs">
+            <label for="Update">Update</label>
+            <div class="tab">
+                <table>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "u1"/></td>
+                        <th>UPDATE Character SET class = 'Titan' WHERE Character.id = 'Exo2'; </th>
+                    </tr>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "u2"/></td>
+                        <th>UPDATE Bungie SET vendor = 'Drifter', season = 'Forsaken' WHERE Bungie.id = 'Dev2'; </th>
+                    </tr>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "u3"/></td>
+                        <th>UPDATE Armor SET ornament = 'True' WHERE Armor.name = 'Omnioculus'; </th>
+                    </tr>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "u4"/></td>
+                        <th>UPDATE User SET status = 'Banned' WHERE User.id = 'Player#0001'; </th>
+                    </tr>
+                </table>
+                <a href="{{url_for('home')}}">Return</a><br>
+            </div>
+
+            <input type="radio" id="Insert" name="FUNCTabs">
+            <label for="Insert">Insert</label>
+            <div class="tab">
+                <table>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "i1"/></td>
+                        <th>INSERT INTO User VALUES ('Player#0002', 'Asia', '7', 'Clear'); </th>
+                    </tr>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "i2"/></td>
+                        <th>INSERT INTO Bungie VALUES ('Dev4', 'Brother Vance', 'Curse of Osiris'); </th>
+                    </tr>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "i3"/></td>
+                        <th>INSERT INTO VALUES ('Eater of Worlds', 'Raid', 'Curse of Osiris', 'Season of the Curse of Osiris'); </th>
+                    </tr>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "i4"/></td>
+                        <th>INSERT INTO Character VALUES ('Human2', 'Titan', 'Arc', 'Player#0001); </th>
+                    </tr>
+                </table>
+                <a href="{{url_for('home')}}">Return</a><br>
+            </div>
+
+            <input type="radio" id="Delete" name="FUNCTabs">
+            <label for="Delete">Delete</label>
+            <div class="tab">
+                <table>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "d1"/></td>
+                        <th>DELETE FROM GameActivities WHERE GameActivities.name = 'Lost Lost Sectors';</th>
+                    </tr>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "d2"/></td>
+                        <th>DELETE FROM DLC WHERE DLC.order_r = '1';</th>
+                    </tr>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "d3"/></td>
+                        <th>DELETE FROM Character WHERE userID in (SELECT User.id FROM User WHERE User.status = 'Banned'); </th>
+                    </tr>
+                    <tr>
+                        <td><input type = "submit" name="pre" value = "d4"/></td>
+                        <th>DELETE FROM Armor WHERE Armor.season = 'Season of the Red War'; </th>
+                    </tr>
+                </table>
+                <a href="{{url_for('home')}}">Return</a><br>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
